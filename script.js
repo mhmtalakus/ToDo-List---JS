@@ -59,4 +59,9 @@ const generateList = () => {
 
 deleteButton.addEventListener("click", () => {
     const newList = JSON.parse(localStorage.getItem("notes"));
+    newList.forEach((note, position) => {
+        if (note === inputElement.value) {
+            newList.splice(position,1);
+        }
+    })
 })
