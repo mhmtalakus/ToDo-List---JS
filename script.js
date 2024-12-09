@@ -92,6 +92,14 @@ updateButton.addEventListener("click", () => {
     const selectedNoteElement = ulElement.querySelector(".selected");
     if (selectedNoteElement) {
         const oldNote = selectedNoteElement.textContent;
+
+        notes.forEach((note, position) => {
+            if (note === oldNote) {
+                notes[position] = newValue;
+            }
+        });
+
+        localStorage.setItem("notes", JSON.stringify(notes));
     } else {
         alert("Please do not select one to update.");
     }
