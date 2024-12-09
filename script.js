@@ -18,7 +18,13 @@ const ulElement = document.querySelector(".card-body>ul.list-group");
 // Add Button
 
 addButton.addEventListener("click", () => {
-    let value = inputElement.value;
+    let value = inputElement.value.trim();
+
+    if (value === "") {
+        alert("Please enter a note.");
+        return;
+    }
+
     if (localStorage.getItem("notes") === null) {
         notes = [];
     } else {
