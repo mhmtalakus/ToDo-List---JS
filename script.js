@@ -1,3 +1,5 @@
+let notes;
+
 const containerElement = document.querySelector("#main.container");
 
 const inputElement = document.querySelector("#textValue");
@@ -12,23 +14,6 @@ const clearButton = document.getElementById("clear");
 // We select the ul element and assign it to a variable.
 
 const ulElement = document.querySelector(".card-body>ul.list-group");
-
-// generateList
-
-const generateList = () => {
-    let newList = JSON.parse(localStorage.getItem("notes"));
-    ulElement.innerHTML = "";
-
-    newList.forEach((element) => {
-        const liElement = document.createElement("li");
-        liElement.classList.add("list-group-item");
-        liElement.addEventListener("click",() => {
-            inputElement.value = liElement.textContent;
-        })
-        ulElement.append(liElement);
-    })
-}
-generateList();
 
 // Add Button
 
@@ -46,8 +31,32 @@ addButton.addEventListener("click", () => {
         notes.push(value);
     }
 
-    localStorage.setItem("notes",JSON.stringify(notes));
+    localStorage.setItem("notes", JSON.stringify(notes));
     inputElement.value = "";
     inputElement.focus();
     generateList();
+})
+
+// generateList
+
+const generateList = () => {
+    let newList = JSON.parse(localStorage.getItem("notes"));
+    ulElement.innerHTML = "";
+
+    newList.forEach((element) => {
+        const liElement = document.createElement("li");
+        liElement.classList.add("list-group-item");
+        liElement.innerHTML = element;
+        liElement.addEventListener("click", () => {
+            inputElement.value = liElement.textContent;
+        })
+        ulElement.append(liElement);
+    });
+}
+
+
+// Delete Button
+
+deleteButton.addEventListener("click", () => {
+    const newList = JSON.parse(localStorage.getItem("notes"));
 })
