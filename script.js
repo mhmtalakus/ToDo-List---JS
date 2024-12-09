@@ -13,6 +13,8 @@ const clearButton = document.getElementById("clear");
 
 const ulElement = document.querySelector(".card-body>ul.list-group");
 
+// generateList
+
 const generateList = () => {
     let newList = JSON.parse(localStorage.getItem("notes"));
     ulElement.innerHTML = "";
@@ -26,3 +28,15 @@ const generateList = () => {
         ulElement.append(liElement);
     })
 }
+generateList();
+
+// Add Button
+
+addButton.addEventListener("click", () => {
+    let value = inputElement.value;
+    if (localStorage.getItem("notes") === null) {
+        notes = [];
+    } else {
+        notes = JSON.parse(localStorage.getItem("notes"));
+    }
+})
