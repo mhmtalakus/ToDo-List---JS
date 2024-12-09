@@ -82,3 +82,10 @@ clearButton.addEventListener("click", () => {
     localStorage.removeItem("notes");
     generateList();
 });
+
+// Update Button
+
+updateButton.addEventListener("click", () => {
+    const newValue = inputElement.value;
+    let notes = JSON.parse(localStorage.getItem("notes"));
+});
