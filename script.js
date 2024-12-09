@@ -100,6 +100,9 @@ updateButton.addEventListener("click", () => {
         });
 
         localStorage.setItem("notes", JSON.stringify(notes));
+        inputElement.value = "";
+        inputElement.focus();
+        generateList();
     } else {
         alert("Please do not select one to update.");
     }
