@@ -61,12 +61,19 @@ deleteButton.addEventListener("click", () => {
     const newList = JSON.parse(localStorage.getItem("notes"));
     newList.forEach((note, position) => {
         if (note === inputElement.value) {
-            newList.splice(position,1);
+            newList.splice(position, 1);
         }
     })
 
-    localStorage.setItem("notes",JSON.stringify(newList));
+    localStorage.setItem("notes", JSON.stringify(newList));
     inputElement.value = "";
     inputElement.focus();
+    generateList();
+})
+
+// Clear Button
+
+clearButton.addEventListener("click", () => {
+    localStorage.removeItem("notes");
     generateList();
 })
