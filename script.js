@@ -45,4 +45,9 @@ addButton.addEventListener("click", () => {
     } else {
         notes.push(value);
     }
+
+    localStorage.setItem("notes",JSON.stringify(notes));
+    inputElement.value = "";
+    inputElement.focus();
+    generateList();
 })
