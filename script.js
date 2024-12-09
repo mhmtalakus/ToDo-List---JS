@@ -64,4 +64,9 @@ deleteButton.addEventListener("click", () => {
             newList.splice(position,1);
         }
     })
+
+    localStorage.setItem("notes",JSON.stringify(newList));
+    inputElement.value = "";
+    inputElement.focus();
+    generateList();
 })
