@@ -49,7 +49,12 @@ const generateList = () => {
         liElement.innerHTML = element;
         liElement.addEventListener("click", () => {
             inputElement.value = liElement.textContent;
-        })
+            const previouslySelected = ulElement.querySelector(".selected");
+            if (previouslySelected) {
+                previouslySelected.classList.remove("selected");
+            }
+            liElement.classList.add("selected");
+        });
         ulElement.append(liElement);
     });
 }
@@ -76,4 +81,4 @@ deleteButton.addEventListener("click", () => {
 clearButton.addEventListener("click", () => {
     localStorage.removeItem("notes");
     generateList();
-})
+});
