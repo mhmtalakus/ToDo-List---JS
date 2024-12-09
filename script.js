@@ -16,4 +16,13 @@ const ulElement = document.querySelector(".card-body>ul.list-group");
 const generateList = () => {
     let newList = JSON.parse(localStorage.getItem("notes"));
     ulElement.innerHTML = "";
+
+    newList.forEach((element) => {
+        const liElement = document.createElement("li");
+        liElement.classList.add("list-group-item");
+        liElement.addEventListener("click",() => {
+            inputElement.value = liElement.textContent;
+        })
+        ulElement.append(liElement);
+    })
 }
