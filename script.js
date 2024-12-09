@@ -88,4 +88,11 @@ clearButton.addEventListener("click", () => {
 updateButton.addEventListener("click", () => {
     const newValue = inputElement.value;
     let notes = JSON.parse(localStorage.getItem("notes"));
+
+    const selectedNoteElement = ulElement.querySelector(".selected");
+    if (selectedNoteElement) {
+        const oldNote = selectedNoteElement.textContent;
+    } else {
+        alert("Please do not select one to update.");
+    }
 });
