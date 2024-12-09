@@ -39,4 +39,10 @@ addButton.addEventListener("click", () => {
     } else {
         notes = JSON.parse(localStorage.getItem("notes"));
     }
+
+    if (notes.includes(value)) {
+        alert("Note was added before. Adding failed.");
+    } else {
+        notes.push(value);
+    }
 })
